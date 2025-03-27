@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Retro World</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: "Comic Sans MS", cursive;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .welcome-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            text-align: center;
+            text-shadow: 0 0 10px #ff00ff,
+                         0 0 20px #ff00ff,
+                         0 0 30px #ff00ff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .rotating-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            animation: rotate3D 8s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        .top-text { top: 20%; }
+        .bottom-text { bottom: 20%; }
+
+        .menu {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .menu a {
+            color: #00ff00;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 24px;
+            text-shadow: 0 0 5px #00ff00;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            transform: scale(1.2);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff00ff,
+                            0 0 20px #ff00ff,
+                            0 0 30px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 20px #00ffff,
+                            0 0 30px #00ffff,
+                            0 0 40px #00ffff;
+            }
+        }
+
+        @keyframes rotate3D {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .flame {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: flame 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes flame {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="starfield"></canvas>
+        <div class="rotating-text top-text">* ~ * WELCOME TO THE MATRIX * ~ *</div>
+        <div class="welcome-text">ENTER THE VOID</div>
+        <div class="rotating-text bottom-text">* ~ * CHOOSE YOUR DESTINY * ~ *</div>
+        <div class="menu">
+            <a href="#" onclick="return false;">ENTER</a>
+            <a href="#" onclick="return false;">ABOUT</a>
+            <a href="#" onclick="return false;">CONTACT</a>
+        </div>
+    </div>
+    <script src="retro.js"></script>
+</body>
+</html> 
